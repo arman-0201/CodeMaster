@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Կիբեռանվտանգություն - CodeMaster Ակադեմիա</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-code"></i> CodeMaster Ակադեմիա</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Գլխավոր</a></li>
+                    <li><a href="index.html#courses"><i class="fas fa-book"></i> Դասընթացներ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="course-container">
+            <div class="topics-list">
+                <h3>Թեմաներ</h3>
+                <ul id="topicsList">
+                    <!-- Թեմաները կավելացվեն JavaScript-ով -->
+                </ul>
+            </div>
+            <div class="topic-content" id="topicContent">
+                <h2>Կիբեռանվտանգություն</h2>
+                <p>Ընտրեք թեման ձախ կողմից՝ դասընթացի մանրամասները տեսնելու համար:</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 CodeMaster Ակադեմիա։ Բոլոր իրավունքները պաշտպանված են։</p>
+        </div>
+    </footer>
+
+    <script>
+    const courseContent = {
+        'intro': {
+            title: 'Ներածություն կիբեռանվտանգության մեջ',
+            description: 'Ծանոթացում կիբեռանվտանգության հիմնական հասկացություններին և սկզբունքներին:',
+            topics: [
+                {
+                    title: 'Կիբեռանվտանգության հիմունքներ',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Կիբեռանվտանգության սահմանում և կարևորությունը</li>
+                            <li>Կիբեռհանցագործությունների տեսակները</li>
+                            <li>Տեղեկատվական անվտանգության հիմնական սկզբունքները (CIA triad)</li>
+                            <li>Կիբեռանվտանգության մասնագետների դերերը և պարտականությունները</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Վերլուծել վերջին ժամանակների հայտնի կիբեռհարձակման դեպք և քննարկել դրա հետևանքները:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Ստեղծել պրեզենտացիա կիբեռանվտանգության կարևորության մասին՝ ներկայացնելով իրական օրինակներ:</p>
+                    `
+                },
+                {
+                    title: 'Ցանցային անվտանգություն',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Ցանցային արձանագրություններ և մոդելներ</li>
+                            <li>Ցանցային սպառնալիքների տեսակները</li>
+                            <li>Firewall-ներ և IDS/IPS համակարգեր</li>
+                            <li>VPN տեխնոլոգիաներ</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Կարգավորել պարզ firewall՝ օգտագործելով iptables (Linux) կամ Windows Firewall:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Ստեղծել փոքր ցանցի անվտանգության պլան՝ նշելով հնարավոր սպառնալիքները և դրանց դեմ պայքարի միջոցները:</p>
+                    `
+                }
+            ]
+        },
+        'cryptography': {
+            title: 'Կրիպտոգրաֆիա',
+            description: 'Ուսումնասիրություն կրիպտոգրաֆիայի հիմունքների և դրա կիրառությունների մասին կիբեռանվտանգության մեջ:',
+            topics: [
+                {
+                    title: 'Կրիպտոգրաֆիայի հիմունքներ',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Սիմետրիկ և ասիմետրիկ կրիպտոգրաֆիա</li>
+                            <li>Հեշավորման ալգորիթմներ</li>
+                            <li>Թվային ստորագրություններ</li>
+                            <li>SSL/TLS արձանագրություններ</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Իրականացնել պարզ կրիպտոգրաֆիկ ալգորիթմ (օրինակ՝ Caesar cipher) Python-ով:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Ստեղծել ծրագիր, որը կօգտագործի OpenSSL գրադարանը՝ ֆայլերը կոդավորելու և ապակոդավորելու համար:</p>
+                    `
+                }
+            ]
+        }
+    };
+
+    function showTopic(course, topicIndex) {
+        const content = document.getElementById('topicContent');
+        const topic = courseContent[course].topics[topicIndex];
+        
+        let topicHTML = `
+            <h2>${courseContent[course].title}</h2>
+            <p>${courseContent[course].description}</p>
+            <h3>${topic.title}</h3>
+            ${topic.content}
+        `;
+
+        content.innerHTML = topicHTML;
+    }
+
+    function initializeTopics() {
+        const topicsList = document.getElementById('topicsList');
+        let listHTML = '';
+
+        for (let course in courseContent) {
+            listHTML += `<li><strong>${courseContent[course].title}</strong></li>`;
+            courseContent[course].topics.forEach((topic, index) => {
+                listHTML += `<li><a href="#" onclick="showTopic('${course}', ${index})">${topic.title}</a></li>`;
+            });
+        }
+
+        topicsList.innerHTML = listHTML;
+    }
+
+    // Կանչում ենք initializeTopics ֆունկցիան էջի բեռնման ժամանակ
+    window.onload = initializeTopics;
+    </script>
+</body>
+</html>

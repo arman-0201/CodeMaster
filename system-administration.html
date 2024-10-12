@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Համակարգերի ադմինիստրացիա - CodeMaster Ակադեմիա</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-code"></i> CodeMaster Ակադեմիա</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Գլխավոր</a></li>
+                    <li><a href="index.html#courses"><i class="fas fa-book"></i> Դասընթացներ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="course-container">
+            <div class="topics-list">
+                <h3>Թեմաներ</h3>
+                <ul id="topicsList">
+                    <!-- Թեմաները կավելացվեն JavaScript-ով -->
+                </ul>
+            </div>
+            <div class="topic-content" id="topicContent">
+                <h2>Համակարգերի ադմինիստրացիա</h2>
+                <p>Ընտրեք թեման ձախ կողմից՝ դասընթացի մանրամասները տեսնելու համար:</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 CodeMaster Ակադեմիա։ Բոլոր իրավունքները պաշտպանված են։</p>
+        </div>
+    </footer>
+
+    <script>
+    const courseContent = {
+        'linux': {
+            title: 'Linux համակարգերի ադմինիստրացիա',
+            description: 'Ուսումնասիրություն Linux օպերացիոն համակարգի և դրա ադմինիստրացիայի մասին:',
+            topics: [
+                {
+                    title: 'Linux-ի հիմունքներ',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Linux-ի պատմությունը և փիլիսոփայությունը</li>
+                            <li>Linux-ի տարբերակները և դիստրիբուտիվները</li>
+                            <li>Հրամանային տող և հիմնական հրամաններ</li>
+                            <li>Ֆայլային համակարգի կառուցվածքը</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Տեղադրել Linux վիրտուալ մեքենայի վրա և կատարել հիմնական կարգավորումներ:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Ստեղծել սցենար (script), որը կավտոմատացնի որոշակի ադմինիստրատիվ առաջադրանքներ:</p>
+                    `
+                },
+                {
+                    title: 'Օգտատերերի կառավարում',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Օգտատերերի և խմբերի ստեղծում</li>
+                            <li>Թույլտվությունների կառավարում</li>
+                            <li>Sudo կարգավորում</li>
+                            <li>PAM (Pluggable Authentication Modules)</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Ստեղծել նոր օգտատերեր և կարգավորել նրանց թույլտվությունները:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Մշակել օգտատերերի կառավարման քաղաքականություն փոքր կազմակերպության համար:</p>
+                    `
+                }
+            ]
+        },
+        'windows': {
+            title: 'Windows սերվերի ադմինիստրացիա',
+            description: 'Ուսումնասիրություն Windows Server օպերացիոն համակարգի և դրա ադմինիստրացիայի մասին:',
+            topics: [
+                {
+                    title: 'Windows Server-ի հիմունքներ',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Windows Server-ի տարբերակները և հատկությունները</li>
+                            <li>Active Directory-ի հիմունքներ</li>
+                            <li>Group Policy-ի կառավարում</li>
+                            <li>Ֆայլային և տպիչների ծառայություններ</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Տեղադրել Windows Server վիրտուալ մեքենայի վրա և կարգավորել Active Directory:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Ստեղծել Group Policy օբյեկտներ՝ կազմակերպության անվտանգության քաղաքականությունը իրականացնելու համար:</p>
+                    `
+                }
+            ]
+        }
+    };
+
+    function showTopic(course, topicIndex) {
+        const content = document.getElementById('topicContent');
+        const topic = courseContent[course].topics[topicIndex];
+        
+        let topicHTML = `
+            <h2>${courseContent[course].title}</h2>
+            <p>${courseContent[course].description}</p>
+            <h3>${topic.title}</h3>
+            ${topic.content}
+        `;
+
+        content.innerHTML = topicHTML;
+    }
+
+    function initializeTopics() {
+        const topicsList = document.getElementById('topicsList');
+        let listHTML = '';
+
+        for (let course in courseContent) {
+            listHTML += `<li><strong>${courseContent[course].title}</strong></li>`;
+            courseContent[course].topics.forEach((topic, index) => {
+                listHTML += `<li><a href="#" onclick="showTopic('${course}', ${index})">${topic.title}</a></li>`;
+            });
+        }
+
+        topicsList.innerHTML = listHTML;
+    }
+
+    // Կանչում ենք initializeTopics ֆունկցիան էջի բեռնման ժամանակ
+    window.onload = initializeTopics;
+    </script>
+</body>
+</html>

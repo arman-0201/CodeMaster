@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ծրագրավորման լեզուներ - CodeMaster Ակադեմիա</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-code"></i> CodeMaster Ակադեմիա</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Գլխավոր</a></li>
+                    <li><a href="index.html#courses"><i class="fas fa-book"></i> Դասընթացներ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="course-container">
+            <div class="topics-list">
+                <h3>Թեմաներ</h3>
+                <ul id="topicsList">
+                    <!-- Թեմաները կավելացվեն JavaScript-ով -->
+                </ul>
+            </div>
+            <div class="topic-content" id="topicContent">
+                <h2>Ծրագրավորման լեզուներ</h2>
+                <p>Ընտրեք թեման ձախ կողմից՝ դասընթացի մանրամասները տեսնելու համար:</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 CodeMaster Ակադեմիա։ Բոլոր իրավունքները պաշտպանված են։</p>
+        </div>
+    </footer>
+
+    <script>
+    const courseContent = {
+        'python': {
+            title: 'Python ծրագրավորում',
+            description: 'Python-ը հզոր և ճկուն ծրագրավորման լեզու է, որը հայտնի է իր պարզությամբ և ընթեռնելիությամբ:',
+            topics: [
+                {
+                    title: 'Python-ի հիմունքները',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Python-ի տեղադրում և կարգավորում</li>
+                            <li>Փոփոխականներ և տվյալների տիպեր</li>
+                            <li>Օպերատորներ և արտահայտություններ</li>
+                            <li>Պայմանական օպերատորներ (if, elif, else)</li>
+                            <li>Ցիկլեր (for, while)</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Ստեղծել ծրագիր, որը կհաշվի 1-ից մինչև n թվերի գումարը՝ օգտագործելով ցիկլ:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Ստեղծել հասարակ հաշվիչ, որը կընդունի երկու թիվ և գործողություն (գումարում, հանում, բազմապատկում, բաժանում) և կվերադարձնի արդյունքը:</p>
+                    `
+                },
+                {
+                    title: 'Տվյալների կառուցվածքներ',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Ցուցակներ (Lists)</li>
+                            <li>Կորտեժներ (Tuples)</li>
+                            <li>Բառարաններ (Dictionaries)</li>
+                            <li>Բազմություններ (Sets)</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Ստեղծել ծրագիր, որը կօգտագործի տարբեր տվյալների կառուցվածքներ՝ ուսանողների տվյալները պահելու և մշակելու համար:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Իրականացնել պարզ հեռախոսային գրքույկ՝ օգտագործելով բառարան: Ավելացնել հնարավորություններ կոնտակտներ ավելացնելու, ջնջելու և որոնելու համար:</p>
+                    `
+                }
+            ]
+        },
+        'javascript': {
+            title: 'JavaScript և վեբ ծրագրավորում',
+            description: 'JavaScript-ը վեբ ծրագրավորման հիմնական լեզուն է, որը թույլ է տալիս ստեղծել դինամիկ և ինտերակտիվ վեբ կայքեր:',
+            topics: [
+                {
+                    title: 'JavaScript-ի հիմունքները',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Փոփոխականներ և տվյալների տիպեր</li>
+                            <li>Օպերատորներ և արտահայտություններ</li>
+                            <li>Պայմանական օպերատորներ և ցիկլեր</li>
+                            <li>Ֆունկցիաներ</li>
+                            <li>Օբյեկտներ և զանգվածներ</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Ստեղծել ինտերակտիվ հաշվիչ վեբ էջում՝ օգտագործելով JavaScript:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Իրականացնել պարզ խաղ (օրինակ՝ "Գուշակիր թիվը") JavaScript-ով:</p>
+                    `
+                }
+            ]
+        }
+    };
+
+    function showTopic(course, topicIndex) {
+        const content = document.getElementById('topicContent');
+        const topic = courseContent[course].topics[topicIndex];
+        
+        let topicHTML = `
+            <h2>${courseContent[course].title}</h2>
+            <p>${courseContent[course].description}</p>
+            <h3>${topic.title}</h3>
+            ${topic.content}
+        `;
+
+        content.innerHTML = topicHTML;
+    }
+
+    function initializeTopics() {
+        const topicsList = document.getElementById('topicsList');
+        let listHTML = '';
+
+        for (let course in courseContent) {
+            listHTML += `<li><strong>${courseContent[course].title}</strong></li>`;
+            courseContent[course].topics.forEach((topic, index) => {
+                listHTML += `<li><a href="#" onclick="showTopic('${course}', ${index})">${topic.title}</a></li>`;
+            });
+        }
+
+        topicsList.innerHTML = listHTML;
+    }
+
+    // Կանչում ենք initializeTopics ֆունկցիան էջի բեռնման ժամանակ
+    window.onload = initializeTopics;
+    </script>
+</body>
+</html>

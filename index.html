@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMaster Ակադեմիա</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-code"></i> CodeMaster Ակադեմիա</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home"><i class="fas fa-home"></i> Գլխավոր</a></li>
+                    <li><a href="#courses"><i class="fas fa-book"></i> Դասընթացներ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h2>Բարի գալուստ CodeMaster Ակադեմիա</h2>
+                <p>Տիրապետեք ծրագրավորման, կիբեռանվտանգության, էթիկական հաքինգի, ցանցային տեխնոլոգիաների և ադմինիստրացիայի արվեստին։</p>
+                <a href="#courses" class="btn">Բացահայտեք դասընթացները</a>
+            </div>
+        </section>
+
+        <section id="courses">
+            <div class="container">
+                <h2>Մեր դասընթացները</h2>
+                <div class="course-grid">
+                    <div class="course-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Programming Languages</h3>
+                        <p>Սովորեք Python, JavaScript, Java, C++ և ավելին!</p>
+                        <a href="#" class="btn" onclick="openCourseTab('programming')">Սկսել ուսուցումը</a>
+                    </div>
+                    <div class="course-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Cyber Security</h3>
+                        <p>Պաշտպանեք համակարգերը և ցանցերը թվային հարձակումներից։</p>
+                        <a href="#" class="btn" onclick="openCourseTab('cybersecurity')">Սկսել ուսուցումը</a>
+                    </div>
+                    <div class="course-card">
+                        <i class="fas fa-user-secret"></i>
+                        <h3>Ethical Hacking</h3>
+                        <p>Սովորեք մտածել հաքերի պես՝ անվտանգությունը բարելավելու համար։</p>
+                        <a href="#" class="btn" onclick="openCourseTab('ethical-hacking')">Սկսել ուսուցումը</a>
+                    </div>
+                    <div class="course-card">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Network Administration</h3>
+                        <p>Տիրապետեք համակարգչային ցանցերի և արձանագրությունների արվեստին։</p>
+                        <a href="#" class="btn" onclick="openCourseTab('networking')">Սկսել ուսուցումը</a>
+                    </div>
+                    <div class="course-card">
+                        <i class="fas fa-server"></i>
+                        <h3>System Administration</h3>
+                        <p>Կառավարեք և պահպանեք համակարգչային համակարգերն ու սերվերները։</p>
+                        <a href="#" class="btn" onclick="openCourseTab('system-administration')">Սկսել ուսուցումը</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 CodeMaster Ակադեմիա։ Բոլոր իրավունքները պաշտպանված են։</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

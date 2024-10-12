@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course - CodeMaster Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-code"></i> CodeMaster Academy</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="index.html#courses"><i class="fas fa-book"></i> Courses</a></li>
+                    <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="course-content">
+            <div class="container">
+                <h2 id="course-title"></h2>
+                <div id="course-description"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 CodeMaster Academy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const course = urlParams.get('course');
+            const courseTitle = document.getElementById('course-title');
+            const courseDescription = document.getElementById('course-description');
+
+            const courses = {
+                'programming': {
+                    title: 'Programming Languages',
+                    description: 'Learn Python, JavaScript, Java, C++, and more! This course covers the fundamentals of various programming languages and their applications.'
+                },
+                'cybersecurity': {
+                    title: 'Cybersecurity',
+                    description: 'Protect systems and networks from digital attacks. Learn about various security protocols, threat detection, and prevention techniques.'
+                },
+                'ethical-hacking': {
+                    title: 'Ethical Hacking',
+                    description: 'Learn to think like a hacker to improve security. This course covers penetration testing, vulnerability assessment, and ethical hacking methodologies.'
+                },
+                'networking': {
+                    title: 'Networking',
+                    description: 'Master the art of computer networking and protocols. Learn about network architecture, protocols, and troubleshooting techniques.'
+                },
+                'system-administration': {
+                    title: 'System Administration',
+                    description: 'Manage and maintain computer systems and servers. This course covers server management, system optimization, and IT infrastructure.'
+                }
+            };
+
+            if (course && courses[course]) {
+                courseTitle.textContent = courses[course].title;
+                courseDescription.textContent = courses[course].description;
+            } else {
+                courseTitle.textContent = 'Course Not Found';
+                courseDescription.textContent = 'The requested course does not exist.';
+            }
+        });
+    </script>
+</body>
+</html>

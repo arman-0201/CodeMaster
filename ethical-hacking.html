@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Էթիկական հաքինգ - CodeMaster Ակադեմիա</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-code"></i> CodeMaster Ակադեմիա</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Գլխավոր</a></li>
+                    <li><a href="index.html#courses"><i class="fas fa-book"></i> Դասընթացներ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="course-container">
+            <div class="topics-list">
+                <h3>Թեմաներ</h3>
+                <ul id="topicsList">
+                    <!-- Թեմաները կավելացվեն JavaScript-ով -->
+                </ul>
+            </div>
+            <div class="topic-content" id="topicContent">
+                <h2>Էթիկական հաքինգ</h2>
+                <p>Ընտրեք թեման ձախ կողմից՝ դասընթացի մանրամասները տեսնելու համար:</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 CodeMaster Ակադեմիա։ Բոլոր իրավունքները պաշտպանված են։</p>
+        </div>
+    </footer>
+
+    <script>
+    const courseContent = {
+        'intro': {
+            title: 'Ներածություն էթիկական հաքինգի մեջ',
+            description: 'Ծանոթացում էթիկական հաքինգի հիմնական հասկացություններին և մեթոդներին:',
+            topics: [
+                {
+                    title: 'Էթիկական հաքինգի հիմունքներ',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Էթիկական հաքինգի սահմանում և նպատակները</li>
+                            <li>Էթիկական հաքերների տեսակները</li>
+                            <li>Իրավական և էթիկական նկատառումներ</li>
+                            <li>Հաքինգի փուլերը</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Ստեղծել վիրտուալ լաբորատորիա՝ օգտագործելով VirtualBox կամ VMware:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Հետազոտել և ներկայացնել հայտնի էթիկական հաքինգի դեպք:</p>
+                    `
+                },
+                {
+                    title: 'Տեղեկատվության հավաքում',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Պասիվ տեղեկատվության հավաքում</li>
+                            <li>Ակտիվ տեղեկատվության հավաքում</li>
+                            <li>Սոցիալական ինժեներիա</li>
+                            <li>Գործիքներ տեղեկատվության հավաքման համար</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Օգտագործել Maltego գործիքը՝ թիրախի մասին տեղեկություններ հավաքելու համար:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Ստեղծել զեկույց՝ ցույց տալով, թե ինչ տեղեկություններ կարելի է հավաքել հանրային աղբյուրներից:</p>
+                    `
+                }
+            ]
+        },
+        'penetration-testing': {
+            title: 'Ներթափանցման թեստավորում',
+            description: 'Ուսումնասիրություն ներթափանցման թեստավորման մեթոդների և գործիքների մասին:',
+            topics: [
+                {
+                    title: 'Ներթափանցման թեստավորման հիմունքներ',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Ներթափանցման թեստավորման տեսակները</li>
+                            <li>Ներթափանցման թեստավորման մեթոդաբանություններ</li>
+                            <li>Սկանավորում և խոցելիությունների վերլուծություն</li>
+                            <li>Շահագործման տեխնիկաներ</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Օգտագործել Nmap գործիքը՝ ցանցի սկանավորման համար:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Ստեղծել ներթափանցման թեստավորման պլան հիպոթետիկ կազմակերպության համար:</p>
+                    `
+                }
+            ]
+        }
+    };
+
+    function showTopic(course, topicIndex) {
+        const content = document.getElementById('topicContent');
+        const topic = courseContent[course].topics[topicIndex];
+        
+        let topicHTML = `
+            <h2>${courseContent[course].title}</h2>
+            <p>${courseContent[course].description}</p>
+            <h3>${topic.title}</h3>
+            ${topic.content}
+        `;
+
+        content.innerHTML = topicHTML;
+    }
+
+    function initializeTopics() {
+        const topicsList = document.getElementById('topicsList');
+        let listHTML = '';
+
+        for (let course in courseContent) {
+            listHTML += `<li><strong>${courseContent[course].title}</strong></li>`;
+            courseContent[course].topics.forEach((topic, index) => {
+                listHTML += `<li><a href="#" onclick="showTopic('${course}', ${index})">${topic.title}</a></li>`;
+            });
+        }
+
+        topicsList.innerHTML = listHTML;
+    }
+
+    // Կանչում ենք initializeTopics ֆունկցիան էջի բեռնման ժամանակ
+    window.onload = initializeTopics;
+    </script>
+</body>
+</html>

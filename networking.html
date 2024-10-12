@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ցանցային տեխնոլոգիաներ - CodeMaster Ակադեմիա</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-code"></i> CodeMaster Ակադեմիա</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Գլխավոր</a></li>
+                    <li><a href="index.html#courses"><i class="fas fa-book"></i> Դասընթացներ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="course-container">
+            <div class="topics-list">
+                <h3>Թեմաներ</h3>
+                <ul id="topicsList">
+                    <!-- Թեմաները կավելացվեն JavaScript-ով -->
+                </ul>
+            </div>
+            <div class="topic-content" id="topicContent">
+                <h2>Ցանցային տեխնոլոգիաներ</h2>
+                <p>Ընտրեք թեման ձախ կողմից՝ դասընթացի մանրամասները տեսնելու համար:</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 CodeMaster Ակադեմիա։ Բոլոր իրավունքները պաշտպանված են։</p>
+        </div>
+    </footer>
+
+    <script>
+    const courseContent = {
+        'basics': {
+            title: 'Ցանցային տեխնոլոգիաների հիմունքներ',
+            description: 'Ծանոթացում ցանցային տեխնոլոգիաների հիմնական հասկացություններին և սկզբունքներին:',
+            topics: [
+                {
+                    title: 'Ցանցային մոդելներ',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>OSI մոդել</li>
+                            <li>TCP/IP մոդել</li>
+                            <li>Ցանցային սարքեր և դրանց գործառույթները</li>
+                            <li>IP հասցեավորում և ենթացանցեր</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Ստեղծել փոքր ցանցի տոպոլոգիա Cisco Packet Tracer-ում:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Մշակել IP հասցեավորման սխեմա փոքր կազմակերպության համար:</p>
+                    `
+                },
+                {
+                    title: 'Ցանցային արձանագրություններ',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Ethernet և MAC հասցեավորում</li>
+                            <li>ARP (Address Resolution Protocol)</li>
+                            <li>IPv4 և IPv6</li>
+                            <li>TCP և UDP</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Օգտագործել Wireshark-ը՝ ցանցային տրաֆիկը վերլուծելու համար:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Հետազոտել և ներկայացնել IPv6-ի առավելությունները IPv4-ի համեմատ:</p>
+                    `
+                }
+            ]
+        },
+        'routing': {
+            title: 'Երթուղավորում և փոխանցում',
+            description: 'Ուսումնասիրություն երթուղավորման և փոխանցման սկզբունքների և արձանագրությունների մասին:',
+            topics: [
+                {
+                    title: 'Ստատիկ երթուղավորում',
+                    content: `
+                        <h4>Դասի բովանդակությունը</h4>
+                        <ul>
+                            <li>Ստատիկ երթուղիների կարգավորում</li>
+                            <li>Լռելյայն երթուղիներ</li>
+                            <li>Ադմինիստրատիվ հեռավորություններ</li>
+                            <li>Ստատիկ երթուղավորման առավելություններն ու թերությունները</li>
+                        </ul>
+                        <h4>Գործնական աշխատանք</h4>
+                        <p>Կարգավորել ստատիկ երթուղիներ Cisco երթուղիչների վրա:</p>
+                        <h4>Տնային աշխատանք</h4>
+                        <p>Նախագծել և իրականացնել ցանցային տոպոլոգիա՝ օգտագործելով ստատիկ երթուղավորում:</p>
+                    `
+                }
+            ]
+        }
+    };
+
+    function showTopic(course, topicIndex) {
+        const content = document.getElementById('topicContent');
+        const topic = courseContent[course].topics[topicIndex];
+        
+        let topicHTML = `
+            <h2>${courseContent[course].title}</h2>
+            <p>${courseContent[course].description}</p>
+            <h3>${topic.title}</h3>
+            ${topic.content}
+        `;
+
+        content.innerHTML = topicHTML;
+    }
+
+    function initializeTopics() {
+        const topicsList = document.getElementById('topicsList');
+        let listHTML = '';
+
+        for (let course in courseContent) {
+            listHTML += `<li><strong>${courseContent[course].title}</strong></li>`;
+            courseContent[course].topics.forEach((topic, index) => {
+                listHTML += `<li><a href="#" onclick="showTopic('${course}', ${index})">${topic.title}</a></li>`;
+            });
+        }
+
+        topicsList.innerHTML = listHTML;
+    }
+
+    // Կանչում ենք initializeTopics ֆունկցիան էջի բեռնման ժամանակ
+    window.onload = initializeTopics;
+    </script>
+</body>
+</html>
